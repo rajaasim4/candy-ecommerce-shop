@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+ 
+}
+@layer components {
+  .glassy-text {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .grid-columns_1fr_330px {
+    grid-template-columns: 330px 1fr 330px 330px;
+  }
+  .grid-columns_1fr_300px {
+    grid-template-columns: 290px 1fr 290px 290px;
+  }
+  .grid-columns{
+    grid-template-columns: 1fr 1fr;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #f4952c;
+    height: 5px;
+    border-radius: 5px;
+   }
+   input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #f4952c;
+    color: #f4952c;
+    margin-top: -5px;
+    border-radius: 50%;
+   }
+   .rangeSlider:focus{
+    outline: none;
+   }
+   /* .showAriaLabel{
+    position: relative;
+    width: 100%;
+    display: block;
+   }
+  .showAriaLabel::before{
+    content: attr(data-aria-label);
+    position: absolute;
+    text-align: left;
+    color: red;
+    left: 0;
+  } */
+}
+
