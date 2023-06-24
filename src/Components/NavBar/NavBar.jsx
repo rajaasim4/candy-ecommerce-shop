@@ -24,13 +24,6 @@ const NavBar = () => {
       return val.quantity;
     })
     .reduce((prev, next) => prev + next, 0);
-
-  // useEffect(() => {
-  //   let media = window.matchMedia("max-width:540px");
-  //   if (media) {
-  //     media.addEventListener();
-  //   }
-  // }, []);
   return (
     <>
       <header className="">
@@ -96,6 +89,7 @@ const NavBar = () => {
                 <ul className="flex justify-evenly md:flex-col md:h-full md:w-full md:items-center ">
                   <li>
                     <NavLink
+                      onClick={NavbarShow}
                       to="/"
                       className="font-sans font-medium text-base md:text-xl md:p-4"
                     >
@@ -104,6 +98,7 @@ const NavBar = () => {
                   </li>
                   <li>
                     <NavLink
+                      onClick={NavbarShow}
                       to="/About"
                       className="text-base hover:font-medium font-sans md:text-xl md:p-4"
                     >
@@ -112,6 +107,7 @@ const NavBar = () => {
                   </li>
                   <li>
                     <NavLink
+                      onClick={NavbarShow}
                       to="/Shop"
                       className="text-base hover:font-medium font-sans md:text-xl md:p-4"
                     >
@@ -120,6 +116,7 @@ const NavBar = () => {
                   </li>
                   <li>
                     <NavLink
+                      onClick={NavbarShow}
                       to="/Contact"
                       className="text-base hover:font-medium font-sans md:text-xl md:p-4"
                     >
