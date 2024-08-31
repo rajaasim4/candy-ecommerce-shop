@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Details = () => {
+  const navigate = useNavigate("");
   return (
     <>
       <div className="h-14"></div>
@@ -17,7 +20,10 @@ const Details = () => {
                 <span> Sweets </span>
                 For Lovers
               </h3>
-              <button className="bg-[#f4952c] h-14 w-44 sm:h-12 sm:w-40 sm:text-sm  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3">
+              <button
+                onClick={() => navigate("/Shop")}
+                className="bg-[#f4952c] h-14 w-44 sm:h-12 sm:w-40 sm:text-sm  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3"
+              >
                 Shop Now
               </button>
             </div>
@@ -35,7 +41,10 @@ const Details = () => {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
                 odio.
               </p>
-              <button className="bg-[#f4952c]  h-14 w-44 sm:h-12 sm:w-40 sm:text-sm  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3">
+              <button
+                onClick={() => navigate("/Shop")}
+                className="bg-[#f4952c]  h-14 w-44 sm:h-12 sm:w-40 sm:text-sm  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3"
+              >
                 Shop Now
               </button>
             </div>

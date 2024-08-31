@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import CategoryImg2_1 from "../../assets/Images/Category-img2_1.jpg";
 import CategoryImg2_2 from "../../assets/Images/Category-img2_2.jpg";
 import CategoryImg4 from "../../assets/Images/Category-img4.jpg";
 import CategoryImg4_1 from "../../assets/Images/Category-img4_1.jpg";
 const Category = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-10 my-5">
       <div className="text-center mb-5 py-3">
@@ -24,7 +26,10 @@ const Category = () => {
             <p className="text-white ">
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
-            <button className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3">
+            <button
+              onClick={() => navigate("/Shop")}
+              className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3"
+            >
               Browse Shop
             </button>
           </div>
@@ -48,7 +53,10 @@ const Category = () => {
             <p className="text-white ">
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
-            <button className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3">
+            <button
+              onClick={() => navigate("/Shop")}
+              className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3"
+            >
               Browse Shop
             </button>
           </div>
@@ -74,7 +82,10 @@ const Category = () => {
             <p className="w-11/12 ">
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
-            <button className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3">
+            <button
+              onClick={() => navigate("/Shop")}
+              className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 mt-3"
+            >
               Browse Shop
             </button>
           </div>

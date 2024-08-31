@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { IoCloseOutline } from "react-icons/all";
+import { AiOutlineMinus, FiPlus, IoCloseOutline } from "react-icons/all";
 import {
   addToCart,
   decrementItem,
@@ -14,7 +14,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="w-95 mx-auto flex gap-4 md:flex-col-reverse">
+      <div className="w-95 mx-auto flex gap-4 md:flex-col-reverse xxl:w-[1700px]">
         <div className="w-8/12 md:w-full ">
           <div className="w-full">
             <h2 className="my-4 text-3xl">Shopping Bag</h2>
@@ -24,12 +24,12 @@ const Cart = () => {
               <table className="w-full border-2">
                 <thead className="border md:hidden">
                   <tr className="text-center h-14">
-                    <th></th>
                     <th>Product</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>SubTotal</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody className="mt-2">
@@ -39,14 +39,6 @@ const Cart = () => {
                         className="text-center h-36 md:h-max md:mb-5 sm:flex md:items-center md:flex-col "
                         key={Index}
                       >
-                        <td className=" ">
-                          <span
-                            onClick={() => dispatch(removeToCart(item.id))}
-                            className="pl-5"
-                          >
-                            <IoCloseOutline className="cursor-pointer" />
-                          </span>
-                        </td>
                         <td className="text-center " data-aria-label="Product">
                           {/* <div className="flex justify-center"> */}
                           <img
@@ -64,21 +56,31 @@ const Cart = () => {
                         </td>
                         <td data-aria-label="Qunatity" className="">
                           <button
-                            className="w-10 h-10 bg-[#f4952c] text-white rounded-xl text-xl"
+                            className="w-10 h-10 bg-[#f4952c] inline-flex justify-center items-center text-white rounded-xl text-xl"
                             onClick={() => dispatch(addToCart(item))}
                           >
-                            +
+                            <FiPlus />
                           </button>
-                          <span className="mx-2">{item.quantity}</span>
+                          <span className="mx-2 font-medium">
+                            {item.quantity}
+                          </span>
                           <button
-                            className="w-10 h-10 bg-[#f4952c] text-white rounded-xl text-xl"
+                            className="w-10 h-10 bg-[#f4952c] inline-flex justify-center items-center text-white rounded-xl text-xl"
                             onClick={() => dispatch(decrementItem(item.id))}
                           >
-                            -
+                            <AiOutlineMinus />
                           </button>
                         </td>
                         <td data-aria-label="SubTotal" className="">
                           ${item.subTotal}
+                        </td>
+                        <td className=" ">
+                          <span
+                            onClick={() => dispatch(removeToCart(item.id))}
+                            className="pl-0"
+                          >
+                            <IoCloseOutline className="cursor-pointer text-3xl" />
+                          </span>
                         </td>
                       </tr>
                     );

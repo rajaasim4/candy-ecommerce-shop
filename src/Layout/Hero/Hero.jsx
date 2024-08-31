@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import CookieImg from "../../assets/Images/Hero-cookie.png";
 import HeroImg from "../../assets/Images/Hero-img.png";
 import HeroImg2 from "../../assets/Images/Hero-img2.png";
@@ -6,6 +7,7 @@ import HeroParallax1 from "../../assets/Images/Hero-parallax1.png";
 import HeroParallax2 from "../../assets/Images/Hero-parallax2.png";
 import { Parallax } from "react-scroll-parallax";
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section>
       <div className="w-95 bg-[#f2f1ec] min-h-[700px] mx-auto rounded-2xl flex justify-center items-center relative overflow-hidden bg px-4 slg:flex-col slg:gap-y-8 py-6 xxl:w-[1700px]">
@@ -58,11 +60,17 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex gap-x-6 flex-wrap sm:items-center slg:mx-auto sm:gap-y-5 sm:justify-center">
-            <button className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 sm:h-12">
+            <button
+              onClick={() => navigate("/Shop")}
+              className="bg-[#f4952c] h-14 w-44  text-md rounded-full text-white  flex items-center justify-evenly relative hover:bg-black hover:text-white duration-300 sm:h-12"
+            >
               Shop Now
             </button>
 
-            <button className="bg-[#000] h-14 w-44  text-md rounded-full text-white flex items-center justify-evenly relative hover:bg-[#f4952c]  duration-300 sm:h-12">
+            <button
+              onClick={() => navigate("/Shop")}
+              className="bg-[#000] h-14 w-44  text-md rounded-full text-white flex items-center justify-evenly relative hover:bg-[#f4952c]  duration-300 sm:h-12"
+            >
               Custom Order
             </button>
           </div>

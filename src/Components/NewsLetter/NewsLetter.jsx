@@ -1,12 +1,13 @@
+import { motion } from "framer-motion";
 const NewsLetter = () => {
   return (
     <>
       <div className="my-5 py-10">
         <div className="w-95 mx-auto bg-overlaybg  after:bg-[length:100%_100%]   after:bg-no-repeat min-h-[643px] rounded-3xl overflow-hidden relative after:absolute after:contents-[] after:top-0 after:left-0 after:w-full after:h-full  after:bg-newsletterbg after:bg-center  after:-z-10 flex justify-center  items-center xxl:w-[1700px] sm:after:bg-cover">
           <div className="w-8/12 flex flex-col items-center gap-y-6 text-center md:w-11/12">
-            <h3 className="text-white text-4xl slg:text-3xl md:text-2xl sm:text-xl xsm:text-lg">
+            <motion.h3 className="text-white text-4xl slg:text-3xl md:text-2xl sm:text-xl xsm:text-lg">
               Get Started
-            </h3>
+            </motion.h3>
             <h1 className="text-white text-6xl xl:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl">
               Great Customers Are Using The Confectionery Shop
             </h1>

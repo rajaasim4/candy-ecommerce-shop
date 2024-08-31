@@ -60,9 +60,9 @@ const Shop = () => {
 
   return (
     <>
-      <div className="py-5">
+      <div className="py-5 xxl:w-[1700px] mx-auto">
         <div className="w-95 bg-breadcrumb bg-cover h-72 mx-auto rounded-2xl bg-no-repeat bg-center"></div>
-        <div className="w-95 mt-6 py-5 flex mx-auto relative md:flex-col md:items-center">
+        <div className="w-95 mt-6 py-5 flex mx-auto relative md:flex-col md:items-center ">
           <div className="w-3/12 py-10 slg:w-5/12 md:w-7/12 sm:w-11/12 ">
             <h3 className="text-3xl font-medium font-pacifico">Category</h3>
             <div className="">

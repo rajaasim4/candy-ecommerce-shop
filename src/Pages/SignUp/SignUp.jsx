@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 const SignUp = () => {
   return (
     <>
-      <div className="w-95 mx-auto flex justify-center items-center flex-col pt-5 pb-10 ">
+      <div className="w-95 mx-auto flex justify-center items-center flex-col pt-5 pb-10 xxl:min-h-screen">
         <h2 className="text-center text-3xl mb-5">Welcome to Our Shop</h2>
         <div className="w-6/12  flex justify-center flex-col items-center gap-y-4 sm:w-95">
           <div className="flex flex-col gap-y-4 sm:w-full">

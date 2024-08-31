@@ -2,6 +2,7 @@ import { AiTwotoneStar, CiShoppingBasket } from "react-icons/all";
 // import cake from "../../assets/Images/Cake.jpg";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../ShoppingCart/Cart/CartSlice";
+import { toast } from "sonner";
 const ProductCard = (props) => {
   const dispatch = useDispatch();
 
@@ -17,6 +18,7 @@ const ProductCard = (props) => {
       //   imgsrc,
       // })
     );
+    toast.success("Product Added to Cart");
   };
   return (
     <div className=" w-[330px] h-[500px]  ">
