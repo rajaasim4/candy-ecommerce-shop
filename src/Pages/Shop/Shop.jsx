@@ -8,54 +8,71 @@ import Footer from "../../Components/Footer/Footer";
 const Shop = () => {
   const [category, setCategory] = useState(ShopProduct);
   const [filterPrice, setFilterPrice] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("allProducts");
 
   const FilterByCategory = (value) => {
-    if (value == "allProducts") {
-      setCategory(ShopProduct);
-      return;
-    } else {
-      const CategoryFilterData = ShopProduct.filter((val) => {
-        return val.category === value;
-      });
+    setSelectedCategory(value);
+    let filteredProducts = ShopProduct;
 
-      setCategory(CategoryFilterData);
+    if (value !== "allProducts") {
+      filteredProducts = ShopProduct.filter(
+        (product) => product.category === value
+      );
     }
+
+    if (filterPrice > 0) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price <= filterPrice
+      );
+    }
+
+    setCategory(filteredProducts);
   };
+
   const filterByPrice = () => {
-    let filterProducts = ShopProduct.filter(
-      (item) => item.price <= filterPrice
-    );
-    setCategory(filterProducts);
+    let filteredProducts = ShopProduct;
+
+    if (selectedCategory !== "allProducts") {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.category === selectedCategory
+      );
+    }
+
+    if (filterPrice > 0) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price <= filterPrice
+      );
+    }
+
+    setCategory(filteredProducts);
   };
 
   const ref = useRef();
 
-  //?Sorting the Products
-
+  // Sorting the Products
   const sortData = () => {
     let value = ref.current;
     let selectedValue = value.options[value.selectedIndex].value;
     let data = "";
+
     switch (selectedValue) {
       case "highPrice":
-        data = ShopProduct.slice().sort((x, y) => y.price - x.price);
-        setCategory(data);
+        data = [...category].sort((x, y) => y.price - x.price);
         break;
       case "lowPrice":
-        data = ShopProduct.slice().sort((x, y) => x.price - y.price);
-        setCategory(data);
+        data = [...category].sort((x, y) => x.price - y.price);
         break;
       case "aToZ":
-        data = ShopProduct.slice().sort((x, y) => x.name.localeCompare(y.name));
-        setCategory(data);
+        data = [...category].sort((x, y) => x.name.localeCompare(y.name));
         break;
       case "zToA":
-        data = ShopProduct.slice().sort((x, y) => y.name.localeCompare(x.name));
-        setCategory(data);
+        data = [...category].sort((x, y) => y.name.localeCompare(x.name));
         break;
       default:
-        setCategory(ShopProduct);
+        data = ShopProduct;
     }
+
+    setCategory(data);
   };
 
   return (
@@ -65,7 +82,7 @@ const Shop = () => {
         <div className="w-95 mt-6 py-5 flex mx-auto relative md:flex-col md:items-center ">
           <div className="w-3/12 py-10 slg:w-5/12 md:w-7/12 sm:w-11/12 ">
             <h3 className="text-3xl font-medium font-pacifico">Category</h3>
-            <div className="">
+            <div>
               <CategorySelector
                 title={"All Products"}
                 id="allProducts"
@@ -102,13 +119,14 @@ const Shop = () => {
               Filter By Price
             </h3>
             <div className="mt-6">
-              <h1>{filterPrice}</h1>
+              <h1>${filterPrice}</h1>
               <input
                 type="range"
                 className="w-8/12 bg-red-200 rangeSlider"
                 value={filterPrice}
                 onChange={(e) => setFilterPrice(e.target.value)}
-                min={16}
+                min={0}
+                max={Math.max(...ShopProduct.map((item) => item.price))}
               />
               <button
                 className="block mt-5 bg-black text-white w-11/12 h-12 rounded-full duration-300 hover:bg-[#f4952c]"
@@ -127,7 +145,7 @@ const Shop = () => {
                 <select
                   name=""
                   id=""
-                  className=" text-white text-lg rounded-md w-40 bg-black h-16 cursor-pointer outline-none"
+                  className="text-white text-lg rounded-md w-40 bg-black h-16 cursor-pointer outline-none"
                   ref={ref}
                   onChange={sortData}
                 >
@@ -156,4 +174,5 @@ const Shop = () => {
     </>
   );
 };
+
 export default Shop;
